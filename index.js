@@ -8,6 +8,15 @@ var dic = function (config) {
   var code = generateCode(config);
   var timeout, default_mirror;
 
+  const map = {
+    "austrailia": "http://nihongo.monash.edu/cgi-bin/wwwjdic?",
+    "australia_monash": "http://nihongo.monash.edu/cgi-bin/wwwjdic?",
+    "australia_melbourne": "http://nlp.cis.unimelb.edu.au/jwb/wwwjdic/wwwjdic.cgi?",
+    "germany": "http://wwwjdic.biz/cgi-bin/wwwjdic?",
+    "usa": "http://www.edrdg.org/cgi-bin/wwwjdic/wwwjdic?",
+    "sweden": "http://wwwjdic.se/cgi-bin/wwwjdic?"
+  }
+
   if (config && config.timeout) {
     if (typeof config.timeout != "number" || config.timeout < 0) throw new Error(
       "timeout must be a positive integer");
@@ -72,9 +81,7 @@ var dic = function (config) {
 
     function tryAnother() {
       if (!resolved) {
-        var arr = ['usa', 'japan', 'canada', 'germany', 'sweden',
-          'austrailia'
-        ];
+        var arr = map.keys();
         var num = Math.floor(Math.random() * 6);
         console.log('trying mirror: ' + arr[num]);
         query(arr[num]);
@@ -86,18 +93,8 @@ var dic = function (config) {
   }
 
   function mapMirror(key) {
-    var map = {
-      "austrailia": "http://www.csse.monash.edu.au/~jwb/cgi-bin/wwwjdic?",
-      "canada": "http://www.ottix.net/cgi-bin/wwwjdic/wwwjdic?",
-      "germany": "http://wwwjdic.biz/cgi-bin/wwwjdic?",
-      "japan": "http://gengo.com/wwwjdic/cgi-data/wwwjdic?",
-      "usa": "http://www.edrdg.org/cgi-bin/wwwjdic/wwwjdic?",
-      "sweden": "http://wwwjdic.se/cgi-bin/wwwjdic?"
-    }
     return map[key]
   }
-
-
 
 }
 

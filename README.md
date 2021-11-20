@@ -1,4 +1,4 @@
-#Japaneasy
+#Japaneasy - This is just a fork with a couple of bugfixes. real credits to rewonc
 
 [![Build Status](https://travis-ci.org/rewonc/japaneasy.svg?branch=master)](https://travis-ci.org/rewonc/japaneasy)
 
@@ -23,7 +23,7 @@ It also includes automatic switching between WWWJDIC mirrors in the case that th
 #####Request
 
 ```javascript
-var Dictionary = require('japaneasy');
+var Dictionary = require('japaneasy-zergleb');
 var dict = new Dictionary();
 
 dict('辞書').then(function(result){
@@ -54,7 +54,7 @@ dict('辞書').then(function(result){
 #####Japanese text glossing
 
 ```javascript
-var Dictionary = require('japaneasy');
+var Dictionary = require('japaneasy-zergleb');
 var dict = new Dictionary({
   dictionary: "glossing"
 });
@@ -92,7 +92,7 @@ dict('飛べねぇ豚はただのブタだ').then(function(result){
 #####Specialized dictionary search
 
 ```javascript
-var Dictionary = require('japaneasy');
+var Dictionary = require('japaneasy-zergleb');
 var dict = new Dictionary({
   dictionary: "life-science",
   input: "english"              //important: Put in your input language for all of the specialized dictionaries
@@ -134,7 +134,7 @@ All options are entered as one object and input as the first parameter of the in
 
 ```javascript
 
-var Dictionary = require('japaneasy');
+var Dictionary = require('japaneasy-zergleb');
 //this is the default configuration used when no object is passed to the constructor
 var dict = new Dictionary({
   dictionary: "edict",
@@ -202,13 +202,13 @@ This is your character encoding. Default value is `"UTF-8"`.  You can also selec
 #####"mirror" option
 Select the default mirror to which japaneasy sends requests. The default value is `"usa"`. Other values include:
 `"sweden"`
-`"japan"`
 `"germany"`
 `"canada"`
-`"austrailia"`
+`"australia_monash"`
+`"australia_melbourne"`
 
 #####"timeout" option
-If a request to a certain has not resolved the promise object within the time specified here, japaneasy will query a different mirror.  WWWJDIC mirrors occasionally go down (at the time of this writing, the Austrailia mirror is down), but it's very infrequent that all five are down at the same time. 
+If a request to a certain has not resolved the promise object within the time specified here, japaneasy will query a different mirror.  WWWJDIC mirrors occasionally go down, but it's very infrequent that all five are down at the same time.
 Default value is `500` (milliseconds), which is long enough to not query multiple mirrors and short enough to not notice the delay if you switch over. If you're consistently seeing long load times, try changing the default mirror. 
 
 #####"custom" option
@@ -227,4 +227,3 @@ For assistance in interpreting the part of speech code, see http://www.edrdg.org
 
 ##Contributors
 Any contributors are very welcome!  Just write in your tests in test/test.js.  Please send bug reports my way too.  Thanks! =)
-
