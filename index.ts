@@ -37,7 +37,6 @@ var dic = function (config) {
   return search;
 
 
-
   function search(text) {
     var resolved = false;
     var counter = 0;
@@ -81,7 +80,7 @@ var dic = function (config) {
 
     function tryAnother() {
       if (!resolved) {
-        var arr = map.keys();
+        var arr = this.map.keys();
         var num = Math.floor(Math.random() * 6);
         console.log('trying mirror: ' + arr[num]);
         query(arr[num]);
@@ -97,8 +96,6 @@ var dic = function (config) {
   }
 
 }
-
-
 
 if (typeof module !== 'undefined') {
   module.exports = dic;
