@@ -2,7 +2,7 @@
   "name": "japaneasy-zergleb",
   "description": "API for the WWWJDICT project - original credits to rewonc",
   "author": "Caleb Holt <boneless1213@gmail.com> (https://github.com/zergleb)",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
